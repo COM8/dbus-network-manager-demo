@@ -16,7 +16,16 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
 endif()
 
-add_executable(dbus_nm_demo main.cpp)
+add_executable(dbus_nm_demo main.cpp
+                            interfaces/SettingsInterface.hpp
+                            interfaces/SettingsConnectionInterface.hpp
+
+                            actions/SettingsAction.hpp
+                            actions/SettingsAction.cpp
+                            actions/SettingsConnectionAction.hpp
+                            actions/SettingsConnectionAction.cpp)
+
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
 
 if(WIN32) # Install dlls in the same directory as the executable on Windows
     set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
