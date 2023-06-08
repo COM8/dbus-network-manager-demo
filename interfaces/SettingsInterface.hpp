@@ -1,5 +1,7 @@
 #pragma once
 
+// Do not include in the same file as 'SettingsConnectionInterface.hpp' to prevent name clash between namespace and class.
+
 #include <vector>
 
 #include <simppl/interface.h>
@@ -12,8 +14,6 @@ INTERFACE(Settings) {
     Method<simppl::dbus::out<std::vector<simppl::dbus::ObjectPath>>> ListConnections;
 
     Settings()
-        : INIT(ListConnections) {
-        // NOOP
-    }
+        : INIT(ListConnections) {}
 };
 }  // namespace org::freedesktop::NetworkManager

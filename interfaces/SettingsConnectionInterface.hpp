@@ -1,5 +1,7 @@
 #pragma once
 
+// Do not include in the same file as 'SettingsInterface.hpp' to prevent name clash between namespace and class.
+
 #include <map>
 
 #include <simppl/any.h>
